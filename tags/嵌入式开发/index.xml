@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>嵌入式开发 on 刘苏苏</title>
-    <link>https://lsusu.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</link>
+    <link>https://lsusu.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</link>
     <description>Recent content in 嵌入式开发 on 刘苏苏</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 24 Oct 2019 17:47:26 +0800</lastBuildDate>
     
-	<atom:link href="https://lsusu.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lsusu.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,15 +17,6 @@
       
       <guid>https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%A0%86%E4%BD%BF%E7%94%A8%E9%A3%8E%E9%99%A9/</guid>
       <description>内存管理一直是C编程中最重要的话题。 嵌入式平台尤为特殊，毕竟如果小数据量的内存泄露PC端上G的内存还是够跑一段时间的，MCU则分分钟死给你看</description>
-    </item>
-    
-    <item>
-      <title>嵌入式调试</title>
-      <link>https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/</link>
-      <pubDate>Wed, 23 Oct 2019 17:33:27 +0800</pubDate>
-      
-      <guid>https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/</guid>
-      <description>*针对ARM-M 系列芯片** 目前从事了3~4年的嵌入式开发了，针对嵌入式的调试想法也有不少。所以作为首篇博客进行分享。 嵌入式程序员的知识体系</description>
     </item>
     
   </channel>

@@ -5,7 +5,7 @@
     <link>https://lsusu.github.io/tags/</link>
     <description>Recent content in Tags on 刘苏苏</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 23 Oct 2019 17:33:27 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 17:47:26 +0800</lastBuildDate>
     
 	<atom:link href="https://lsusu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,9 +13,27 @@
     <item>
       <title>ARM</title>
       <link>https://lsusu.github.io/tags/arm/</link>
-      <pubDate>Wed, 23 Oct 2019 17:33:27 +0800</pubDate>
+      <pubDate>Thu, 24 Oct 2019 17:47:26 +0800</pubDate>
       
       <guid>https://lsusu.github.io/tags/arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>内存管理</title>
+      <link>https://lsusu.github.io/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Thu, 24 Oct 2019 17:47:26 +0800</pubDate>
+      
+      <guid>https://lsusu.github.io/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>嵌入式开发</title>
+      <link>https://lsusu.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Thu, 24 Oct 2019 17:47:26 +0800</pubDate>
+      
+      <guid>https://lsusu.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/</guid>
       <description></description>
     </item>
     
