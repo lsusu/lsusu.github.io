@@ -63,4 +63,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: http://blog.lsusu.cn/sitemap.xml
+Sitemap: https://lsusu.github.io/sitemap.xml
