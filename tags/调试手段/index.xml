@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>调试手段 on 刘苏苏</title>
+    <link>http://blog.lsusu.cn/tags/%E8%B0%83%E8%AF%95%E6%89%8B%E6%AE%B5/</link>
+    <description>Recent content in 调试手段 on 刘苏苏</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 23 Oct 2019 17:33:27 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.lsusu.cn/tags/%E8%B0%83%E8%AF%95%E6%89%8B%E6%AE%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>嵌入式调试</title>
+      <link>http://blog.lsusu.cn/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Wed, 23 Oct 2019 17:33:27 +0800</pubDate>
+      
+      <guid>http://blog.lsusu.cn/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/</guid>
+      <description>*针对ARM-M 系列芯片** 目前从事了3~4年的嵌入式开发了，针对嵌入式的调试想法也有不少。所以作为首篇博客进行分享。 嵌入式程序员的知识体系</description>
+    </item>
+    
+  </channel>
+</rss>

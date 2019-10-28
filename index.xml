@@ -1,0 +1,49 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>刘苏苏 on 刘苏苏</title>
+    <link>http://blog.lsusu.cn/</link>
+    <description>Recent content in 刘苏苏 on 刘苏苏</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 23 Oct 2019 17:33:27 +0800</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blogs</title>
+      <link>http://blog.lsusu.cn/blogs/</link>
+      <pubDate>Wed, 23 Oct 2019 17:33:27 +0800</pubDate>
+      
+      <guid>http://blog.lsusu.cn/blogs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://blog.lsusu.cn/about/</link>
+      <pubDate>Tue, 22 Oct 2019 09:23:17 +0800</pubDate>
+      
+      <guid>http://blog.lsusu.cn/about/</guid>
+      <description>
+
+&lt;h1 id=&#34;介绍&#34;&gt;介绍&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.lsusu.cn/images/me.png&#34; width=200 height=200 align=right /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;刘苏苏&#34;&gt;刘苏苏&lt;/h3&gt;
+
+&lt;p&gt;嵌入式开发，2015年成为北漂，熟悉ARM，RTOS，捷联惯导等。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;编程 : C / C++ / python&lt;/li&gt;
+&lt;li&gt;平台 : Linux / Windows / RTOS / 裸奔^_^&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;联系方式&#34;&gt;联系方式&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;邮箱:su77us.qq.com&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

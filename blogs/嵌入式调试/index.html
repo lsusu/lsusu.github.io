@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="刘苏苏">
+  
+  
+  
+  <link rel="prev" href="http://blog.lsusu.cn/blogs/%E9%A6%96%E7%AF%87%E5%8D%9A%E5%AE%A2/" />
+  
+  <link rel="canonical" href="http://blog.lsusu.cn/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="http://blog.lsusu.cn/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://blog.lsusu.cn/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://blog.lsusu.cn/favicon-16x16.png">
+  <link rel="manifest" href="http://blog.lsusu.cn/site.webmanifest">
+  <link rel="mask-icon" href="http://blog.lsusu.cn/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           嵌入式调试 | 刘苏苏
+       
+  </title>
+  <meta name="title" content="嵌入式调试 | 刘苏苏">
+    
+  
+  <link rel="stylesheet" href="http://blog.lsusu.cn/font/iconfont.css">
+  <link rel="stylesheet" href="http://blog.lsusu.cn/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/blog.lsusu.cn"
+    },
+    "articleSection" : "blogs",
+    "name" : "嵌入式调试",
+    "headline" : "嵌入式调试",
+    "description" : "*针对ARM-M 系列芯片** 目前从事了3~4年的嵌入式开发了，针对嵌入式的调试想法也有不少。所以作为首篇博客进行分享。 嵌入式程序员的知识体系",
+    "inLanguage" : "",
+    "author" : "刘苏苏",
+    "creator" : "刘苏苏",
+    "publisher": "刘苏苏",
+    "accountablePerson" : "刘苏苏",
+    "copyrightHolder" : "刘苏苏",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-23 17:33:27 \x2b0800 CST",
+    "dateModified" : "2019-10-23 17:33:27 \x2b0800 CST",
+    "url" : "http:\/\/blog.lsusu.cn\/blogs\/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95\/",
+    "wordCount" : "922",
+    "keywords" : [ "ARM","嵌入式","调试手段", "刘苏苏"]
+}
+</script>
+
+  <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://blog.lsusu.cn">刘苏苏</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/blogs/" title="">博客</a>
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/about/" title="">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://blog.lsusu.cn">刘苏苏</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/blogs/" title="">博客</a>
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="http://blog.lsusu.cn/about/" title="">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">嵌入式调试</h1>
+        <div class="post-meta">
+                <i class="far fa-folder-open"></i>
+                    <span class="post-category">
+                            <a href="http://blog.lsusu.cn/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"> 嵌入式开发 </a>
+                            
+                    </span>
+                <span class="post-time">
+            <i class="far fa-calendar-alt"></i>  <time datetime=2019-10-23 itemprop="datePublished">2019-10-23</time>
+                </span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 922 字</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>*针对ARM-M 系列芯片**</p>
+
+<p>目前从事了3~4年的嵌入式开发了，针对嵌入式的调试想法也有不少。所以作为首篇博客进行分享。</p>
+
+<p>嵌入式程序员的知识体系在大多数程序员中算是较为庞杂的。这个知识图谱大家可以去网上搜索，曾在知乎看到有人总结。</p>
+
+<p>在工作中设计的知识如下：</p>
+
+<ol>
+<li>硬件：
+
+<ul>
+<li>ROM 常见的ROM有 NOR Flash，NAND Flash，EEPROM等等，因结构不同带来的特性也有所不同，也要针对性编程。</li>
+<li>RAM SRAM，DRAM等。</li>
+<li>内核 FPGA,CPLD,Core,DSP等待</li>
+<li>电容，电阻，电感，变压器，二极管，三极管，放大器</li>
+<li>(不想打字了，后续还有更多，每一个词展开都很庞大，具体问题具体分析。)</li>
+</ul></li>
+<li>软件：
+软件就是老生常谈了，常见的算法，数据结构，设计理念等等。</li>
+
+<li><p>操作系统：
+嵌入式的操作系统较多，运行Linux，windows也叫嵌入式，裸奔也是。</p>
+
+<p>常见裸奔，分时，RTOS，linux,windows。</p></li>
+
+<li><p>工艺：
+看到很多嵌入式的博客，都没有说到这个。但是工艺的确是嵌入式程序员和其他程序员的区别。嵌入式程序员的交接不仅仅是研发出产品，还要保证现有的工艺水平能稳定的生产产品。
+需要了解常见的生产工艺，PCB，电子器件的生产工艺等等。</p></li>
+
+<li><p>生产：
+这部分大家也很少提起，但是绝不可忽视。生产流程，管理方法都需要了解。只有了解一个产品完整的周期，才能不仅仅从客户的角度还需要从生产的交互完善产品。</p></li>
+</ol>
+
+<p>本来是写嵌入式的调试方法，结果写了诸多题外。回归正题，本文主要目的是<strong>讨论ARM-M嵌入式调试方法</strong></p>
+
+<h3 id="常见的调试方法分为两种-入侵式-非入侵式">常见的调试方法分为两种 <strong>入侵式</strong> <strong>非入侵式</strong></h3>
+
+<p>区别就是如果能控制代码的运行就是入侵式，否则就是非入侵式</p>
+
+<h3 id="入侵式">入侵式</h3>
+
+<p>入侵式调试最直观的就是可以打断点，</p>
+
+<p>但是也带来一些坏处，比如必须需要调试器(GDB,jlink等)，需要和目标连接。
+断点的启停会影响时间相关函数，以及与别的设备联调的时候只能观察部分等。
+所以入侵式调试并非万能，并且运行结果也并非与实际情况一致。
+好处就是可以实时观察代码运行状态。</p>
+
+<h3 id="非入侵式">非入侵式</h3>
+
+<p>常见就是输出log，当然输出log占用的时间不能影响正常的业务。毕竟在嵌入式上cpu的性能较差，printf还是比较耗时的。
+推荐大家使用<a href="https://github.com/armink/EasyLogger" rel="nofollow noreferrer" target="_blank">Easylogger</a>。这是我常用的调试输出库，可以替代printf。</p>
+
+<p>我应该针对这个开一个专题的。</p>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>刘苏苏 </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://blog.lsusu.cn/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/>http://blog.lsusu.cn/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/</span>
+            </p>
+            
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="http://blog.lsusu.cn/tags/arm/">
+                    #ARM</a></span>
+            
+            <span class="tag"><a href="http://blog.lsusu.cn/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">
+                    #嵌入式</a></span>
+            
+            <span class="tag"><a href="http://blog.lsusu.cn/tags/%E8%B0%83%E8%AF%95%E6%89%8B%E6%AE%B5/">
+                    #调试手段</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> Â·
+                <span><a href="http://blog.lsusu.cn">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://blog.lsusu.cn/blogs/%E9%A6%96%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="prev" rel="prev" title="首次博客"><i class="iconfont icon-left"></i>&nbsp;首次博客</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://blog.lsusu.cn">刘苏苏</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="http://blog.lsusu.cn/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

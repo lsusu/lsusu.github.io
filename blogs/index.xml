@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on 刘苏苏</title>
+    <link>http://blog.lsusu.cn/blogs/</link>
+    <description>Recent content in Blogs on 刘苏苏</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 23 Oct 2019 17:33:27 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.lsusu.cn/blogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>嵌入式调试</title>
+      <link>http://blog.lsusu.cn/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Wed, 23 Oct 2019 17:33:27 +0800</pubDate>
+      
+      <guid>http://blog.lsusu.cn/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/</guid>
+      <description>*针对ARM-M 系列芯片** 目前从事了3~4年的嵌入式开发了，针对嵌入式的调试想法也有不少。所以作为首篇博客进行分享。 嵌入式程序员的知识体系</description>
+    </item>
+    
+    <item>
+      <title>首次博客</title>
+      <link>http://blog.lsusu.cn/blogs/%E9%A6%96%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Tue, 22 Oct 2019 11:21:55 +0800</pubDate>
+      
+      <guid>http://blog.lsusu.cn/blogs/%E9%A6%96%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>其实想搭建博客很久了，购买服务器也好几年了，虽然一直都想着说是写点技术相关的东西，但是有点私心不是很愿意将自己的博客托管在别的平台上 所以也一</description>
+    </item>
+    
+  </channel>
+</rss>
