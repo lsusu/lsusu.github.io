@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="刘苏苏">
+  
+  
+  
+  <link rel="prev" href="https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/" />
+  
+  <link rel="canonical" href="https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%A0%86%E4%BD%BF%E7%94%A8%E9%A3%8E%E9%99%A9%E5%8F%8A%E6%8A%80%E5%B7%A7/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://lsusu.github.io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://lsusu.github.io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://lsusu.github.io/favicon-16x16.png">
+  <link rel="manifest" href="https://lsusu.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://lsusu.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           嵌入式堆使用风险及技巧 | 刘苏苏
+       
+  </title>
+  <meta name="title" content="嵌入式堆使用风险及技巧 | 刘苏苏">
+    
+  
+  <link rel="stylesheet" href="https://lsusu.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://lsusu.github.io/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/lsusu.github.io"
+    },
+    "articleSection" : "blogs",
+    "name" : "嵌入式堆使用风险及技巧",
+    "headline" : "嵌入式堆使用风险及技巧",
+    "description" : "内存管理一直是C编程中最重要的话题。 嵌入式平台尤为特殊，毕竟如果小数据量的内存泄露PC端上G的内存还是够跑一段时间的，MCU则分分钟死给你看",
+    "inLanguage" : "",
+    "author" : "刘苏苏",
+    "creator" : "刘苏苏",
+    "publisher": "刘苏苏",
+    "accountablePerson" : "刘苏苏",
+    "copyrightHolder" : "刘苏苏",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-24 17:47:26 \x2b0800 CST",
+    "dateModified" : "2019-10-24 17:47:26 \x2b0800 CST",
+    "url" : "https:\/\/lsusu.github.io\/blogs\/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%A0%86%E4%BD%BF%E7%94%A8%E9%A3%8E%E9%99%A9%E5%8F%8A%E6%8A%80%E5%B7%A7\/",
+    "wordCount" : "1784",
+    "keywords" : [ "ARM","内存管理","嵌入式开发","堆", "刘苏苏"]
+}
+</script>
+
+  <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lsusu.github.io">刘苏苏</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://lsusu.github.io/blogs/" title="">博客</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/about/" title="">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lsusu.github.io">刘苏苏</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://lsusu.github.io/blogs/" title="">博客</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/about/" title="">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">嵌入式堆使用风险及技巧</h1>
+        <div class="post-meta">
+                <i class="far fa-folder-open"></i>
+                    <span class="post-category">
+                            <a href="https://lsusu.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"> 嵌入式开发 </a>
+                            
+                    </span>
+                <span class="post-time">
+            <i class="far fa-calendar-alt"></i>  <time datetime=2019-10-24 itemprop="datePublished">2019-10-24</time>
+                </span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1784 字</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>内存管理一直是C编程中最重要的话题。</p>
+
+<p>嵌入式平台尤为特殊，毕竟如果小数据量的内存泄露PC端上G的内存还是够跑一段时间的，MCU则分分钟死给你看。</p>
+
+<p>在工作的前几年对堆内存基本不使用，看到大家对内存管理这么惶恐，故而规避最好的方式就是全部不使用，要不使用静态全局变量或者栈变量。</p>
+
+<p>但是这样的设计模式的确规避了堆管理的问题，但是也限制了设计模式。很多灵活的数据结构都没办法使用。</p>
+
+<p>后来曾参与编写一个链表事务管理，对内存的使用有了更多的认识，发现也并非那么可怕。</p>
+
+<p>再此记录堆内存使用的一些方法，可以从源头规避内存管理的问题。</p>
+
+<p>静态变量申请失败编译器可以提示。栈溢出带来的危害很显著，所以很好发现，并且函数调用相对都是稳定的，发送栈溢出也很好复现。</p>
+
+<p>而堆内存申请失败则是在运行时，是诸多因素共同造成，很难找到具体的问题。不过因素较多也可以逐一排查</p>
+
+<p>以下文章默认针对堆使用只用了malloc 和 free,其他申请函数暂不讨论(差别不是很大)</p>
+
+<h3 id="堆使用常见错误">堆使用常见错误</h3>
+
+<h4 id="a-申请失败-申请较大-内存碎片较多暂时无法回收">A.申请失败&ndash;&gt;申请较大，内存碎片较多暂时无法回收。</h4>
+
+<p><strong>排查</strong>：针对这个因素可以锁定申请失败是不是在大内存申请处。在申请失败处增加1byte的申请，查看申请是否成功。屏蔽其他小内存申请，查看运行是否正常。</p>
+
+<p><strong>解决</strong>：改为静态内存。扩大堆空间。修改小内存申请，合并为一个较大空间，从而避免内存碎片。减少小内存生命周期等。</p>
+
+<h4 id="b-内存泄漏">B.内存泄漏</h4>
+
+<p><strong>排查</strong>： 内存探测查看是否泄露，检查代码查看是否存在未释放指针
+<strong>解决</strong>： 释放就好</p>
+
+<h3 id="堆内存使用技巧-针对嵌入式">堆内存使用技巧(针对嵌入式)</h3>
+
+<h4 id="a-长期存活内存-一次性申请">A.长期存活内存，一次性申请</h4>
+
+<p>嵌入式很多模块的生存周期基本与系统开关机是一样的，但是为了保证模块的可移植性或者代码与数据的分离，需要一片长期存在的内存。
+这个时候可以在模块初始化的时候申请一片内存。内存的申请与释放都由模块内部实现。外部禁止对句柄或者结构体进行任何修改。
+这样既能实现模块的隔离，也能实现数据结构与代码的解耦。对于外部而言获取的只是一个指针或者一个不允许修改的结构体而已。</p>
+
+<p>当然直接给结构体是最方便的，但是没办法限制外部不修改(都是自己写的代码就无所谓了)。如果内部再封装一下给一个句柄或者序号。
+类似POSIX,就强制要求外部程序必须通过接口访问了，可以完美限制外部调用。不过就需要内部模块再增加一套number To 结构体的索引了。</p>
+
+<p>比如写一个ringbuff</p>
+
+<pre><code class="language-C">typedef struct ringbuff_t
+{
+    void* pbuf;
+    uint32_t rindex;
+    uint32_t windex;
+};
+
+bool ringbuff_init(ringbuff_t* prb,int size)
+{
+    if(NULL == prb)
+        return false;
+    if(0 &gt;= size)
+        size = 128;
+    memset((void*)prb,0,sizeof(ringbuff_t));
+    prb-&gt;pbuf = malloc(size);
+    if(NULL == prb-&gt;pbuf)
+        return false;
+    return true;
+}
+int ringbuff_del(ringbuff_t* const prb)
+{
+    if(NULL == prb)
+        return false;
+    free(prb-&gt;pbuf);
+    prb-&gt;pbuf = NULL;
+    return true;
+}
+
+int ringbuff_write(ringbuff_t* const prb,void* const pbuf,int len){}
+int ringbuff_read(ringbuff_t* const prb,void* const pbuf,int len){}
+
+</code></pre>
+
+<h4 id="b-堆申请重入风险">B.堆申请重入风险</h4>
+
+<p>嵌入式大多堆管理都不可重入，并且再嵌入式中中断使用也是很平常。哪怕RTOS也没有办法保护。</p>
+
+<p>一旦发生重入问题，破坏堆管理信息时必然的，带来的危害也是随机。并且现象有时候还和内存泄露，内存越界相似。</p>
+
+<p>让问题更难排查，所以建议大家再开发之初就要考虑堆的重入性问题。</p>
+
+<p>解决这个问题也很简单</p>
+
+<ol>
+<li>选择可重入的堆管理(一般的可重入也都是再底层包装好临界区)</li>
+<li>堆管理函数调用设置临界区</li>
+</ol>
+
+<p>针对<strong>2</strong>一般裸奔都是用系统的堆管理，建议用宏封装一下就好。可参照下面代码</p>
+
+<pre><code class="language-C">#define FREE(p)                 do{disable_irq( );free((void*) (p));p = NULL;enable_irq( );}while (0)
+static __inline void* MALLOC(uint32_t nbytes)
+{
+    void* p = NULL;
+    disable_irq( );
+    p = malloc(nbytes);
+    enable_irq( );
+    return p;
+}
+</code></pre>
+
+<h4 id="c-内存泄露探测">C.内存泄露探测</h4>
+
+<p>虽然标准库里面并没有API能显示堆的使用量，但是依旧可以通过别的方法探测内存的使用量。然后就可以根据使用量判断是否存在内存泄露。</p>
+
+<ol>
+<li>选用其他内存管理 比如FreeRTOS里面的<a href="https://www.freertos.org/FreeRTOS_Support_Forum_Archive/December_2014/freertos_heap_4_strange_xFreeBytesRemaining_c05fd9d0j.html" rel="nofollow noreferrer" target="_blank">heap_4</a>就提供了xPortGetFreeHeapSize函数来获取使用量</li>
+
+<li><p>封装系统malloc与free
+比如每次malloc分配多分配4byte空间来保存本次申请长度，找个静态变量，申请的时候增加，释放的时候减。
+虽然会比实际运行增加一些空间上的浪费，但是并不影响内存泄露的问题复现。不过一定要保证增加后的空间后，堆依旧可以申请下来。</p>
+
+<pre><code class="language-C">
+static uint32_t st_heap_use_byte = 0;
+__inline void* MALLOC(uint32_t nbytes)
+{
+void* p = NULL;
+disable_irq( );
+nbytes = nbytes + 4;
+p = malloc(nbytes + 4);
+memcpy((void*)p,(void*)&amp;nbytes,sizeof(uint32_t));
+p += sizeof(uint32_t);
+st_heap_use_byte += nbytes;
+enable_irq( );
+return p;
+}
+
+__inline void FREE(void* p)
+{
+uint32_t len = 0;
+if(NULL != p)
+{
+    disable_irq( );
+    p -= sizeof(uint32_t);
+    memcpy((void*)&amp;len,(void*)p,sizeof(uint32_t));
+    free(p);
+    p = NULL;
+    st_heap_use_byte -= len;
+    enable_irq( );
+}
+}
+</code></pre></li>
+</ol>
+
+<h2 id="总结">总结</h2>
+
+<ol>
+<li><p><strong>谁申请谁释放，尽量不暴露指针，如果暴露指针，也尽量用结构体或者别名封装以下，所有的操作都需要模块内函数进行。
+严禁外部函数修改结构体内任何参数。</strong></p></li>
+
+<li><p><strong>中断重入问题不仅仅再内存，再其他函数也会出现，尽量编写与数据结构分离的函数，这样就可以重入了。
+如果函数内必须调用私有静态变量也要设立临界区保护。</strong></p></li>
+
+<li><p><strong>封装系统malloc,free,一劳永逸解决野指针问题</strong></p></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>刘苏苏 </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%A0%86%E4%BD%BF%E7%94%A8%E9%A3%8E%E9%99%A9%E5%8F%8A%E6%8A%80%E5%B7%A7/>https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%A0%86%E4%BD%BF%E7%94%A8%E9%A3%8E%E9%99%A9%E5%8F%8A%E6%8A%80%E5%B7%A7/</span>
+            </p>
+            
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://lsusu.github.io/tags/arm/">
+                    #ARM</a></span>
+            
+            <span class="tag"><a href="https://lsusu.github.io/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+                    #内存管理</a></span>
+            
+            <span class="tag"><a href="https://lsusu.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                    #嵌入式开发</a></span>
+            
+            <span class="tag"><a href="https://lsusu.github.io/tags/%E5%A0%86/">
+                    #堆</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> Â·
+                <span><a href="https://lsusu.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%B0%83%E8%AF%95/" class="prev" rel="prev" title="嵌入式调试"><i class="iconfont icon-left"></i>&nbsp;嵌入式调试</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://lsusu.github.io">刘苏苏</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://lsusu.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
