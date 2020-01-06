@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>引导 on 刘苏苏</title>
+    <link>https://lsusu.github.io/tags/%E5%BC%95%E5%AF%BC/</link>
+    <description>Recent content in 引导 on 刘苏苏</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 06 Jan 2020 08:33:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://lsusu.github.io/tags/%E5%BC%95%E5%AF%BC/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>嵌入式boot</title>
+      <link>https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8Fboot/</link>
+      <pubDate>Mon, 06 Jan 2020 08:33:21 +0800</pubDate>
+      
+      <guid>https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8Fboot/</guid>
+      <description>虽然嵌入式开发大多时候需求都是稳定的，但是不可避免在发布之后仍然需要修复一些bug及增加一些新功能。 故在空间允许的情况下，我一般都建议每个工</description>
+    </item>
+    
+  </channel>
+</rss>

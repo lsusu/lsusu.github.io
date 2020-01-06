@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="刘苏苏">
+  
+  
+  
+  <link rel="prev" href="https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%A0%86%E4%BD%BF%E7%94%A8%E9%A3%8E%E9%99%A9%E5%8F%8A%E6%8A%80%E5%B7%A7/" />
+  
+  <link rel="canonical" href="https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8Fboot/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://lsusu.github.io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://lsusu.github.io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://lsusu.github.io/favicon-16x16.png">
+  <link rel="manifest" href="https://lsusu.github.io/site.webmanifest">
+  <link rel="mask-icon" href="https://lsusu.github.io/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           嵌入式boot | 刘苏苏
+       
+  </title>
+  <meta name="title" content="嵌入式boot | 刘苏苏">
+    
+  
+  <link rel="stylesheet" href="https://lsusu.github.io/font/iconfont.css">
+  <link rel="stylesheet" href="https://lsusu.github.io/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/lsusu.github.io"
+    },
+    "articleSection" : "blogs",
+    "name" : "嵌入式boot",
+    "headline" : "嵌入式boot",
+    "description" : "虽然嵌入式开发大多时候需求都是稳定的，但是不可避免在发布之后仍然需要修复一些bug及增加一些新功能。 故在空间允许的情况下，我一般都建议每个工",
+    "inLanguage" : "",
+    "author" : "刘苏苏",
+    "creator" : "刘苏苏",
+    "publisher": "刘苏苏",
+    "accountablePerson" : "刘苏苏",
+    "copyrightHolder" : "刘苏苏",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-06 08:33:21 \x2b0800 CST",
+    "dateModified" : "2020-01-06 08:33:21 \x2b0800 CST",
+    "url" : "https:\/\/lsusu.github.io\/blogs\/%E5%B5%8C%E5%85%A5%E5%BC%8Fboot\/",
+    "wordCount" : "1735",
+    "keywords" : [ "ARM","Boot","引导", "刘苏苏"]
+}
+</script>
+
+  <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lsusu.github.io">刘苏苏</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="https://lsusu.github.io/blogs/" title="">博客</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/about/" title="">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lsusu.github.io">刘苏苏</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="https://lsusu.github.io/blogs/" title="">博客</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="https://lsusu.github.io/about/" title="">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">嵌入式boot</h1>
+        <div class="post-meta">
+                <i class="far fa-folder-open"></i>
+                    <span class="post-category">
+                            <a href="https://lsusu.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91/"> 嵌入式开发 </a>
+                            
+                    </span>
+                <span class="post-time">
+            <i class="far fa-calendar-alt"></i>  <time datetime=2020-01-06 itemprop="datePublished">2020-01-06</time>
+                </span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1735 字</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>虽然嵌入式开发大多时候需求都是稳定的，但是不可避免在发布之后仍然需要修复一些bug及增加一些新功能。</p>
+
+<p>故在空间允许的情况下，我一般都建议每个工程师都在项目中增加Boot.</p>
+
+<p>相对于linux常用的uboot，一般嵌入式常用的boot则较为简陋，但是只是适用性的差别，大多基本功能都是相同的。</p>
+
+<p><strong>下文中所指的boot 都代指常用mcu开发中的boot，非内核引导的boot(如uboot)。</strong></p>
+
+<h3 id="boot的作用">boot的作用</h3>
+
+<p>列了boot的主要的一些功能，下面将逐一说明各个功能的作用及原理。</p>
+
+<ol>
+<li><p><strong>负责引导App(核心功能)</strong></p>
+
+<p>引导App是boot存在的意义，此功能是核心功能，但boot也可脱离app的情况下独自允许，但是app却不能脱离boot存在。可见boot在整个系统中是非常关键。
+所以一般boot经发布后较少升级(boot也可以升级)，避免引入新bug，并且boot本身功能较为单一，在开发时已经确定，后期迭代的可能性较少。
+Boot引导App的方式也很简单，大多数嵌入式开发，只需要将pc指针强行指向App中断向量表即可。</p>
+
+<p>以ARM-M core为例，正常中断向量表第一个u32为sp指针，第二个为reset中断指针，所以在开发的时候只需要将app的中断向量表固定到app flash地址空间内即可。</p>
+
+<p>当然一般默认为flash的起始，当然也可以指向RAM。只要不存在冲突中断向量表是可以随便指向任何位置(看内核手册，看地址对齐要求)。</p>
+
+<p>比如想在运行时动态修改中断向量表，则必须将中断向量表copy到RAM然后去修改。本质上只需理解中断向量表为一个函数指针数组，内核会根据中断编号在表中索引函数指针然后调用。</p>
+
+<p>以ARM-M core为例，中断向量表配置寄存器为 <strong>SCB-&gt;VTOR</strong></p>
+
+<p>PS:其他linux等，本质上模型都是与mcu一样，只不过存在很多的优化或者软件上的策略。</p></li>
+
+<li><p><strong>校验App完整性</strong></p>
+
+<p>上面咱们说了，boot主要任务就是引导app，但是这个app并非可靠的，可能因为读取错误，存储错误，亦或者就是工程师原因等等，造成这个app并不能正常运行。
+这个时候boot就是最后一道防线。</p>
+
+<p>app的错误大致可以分为两类 <strong>代码损坏</strong>， <strong>逻辑错误</strong>。</p>
+
+<p><strong>代码损坏</strong> 可能是从工程师到写入芯片内中间环节的问题，也可能是辐射，非易失器件本身特性，传输等等。都会造成app代码损坏。
+可以在编译之后再代码中加入校验，比如再bin文件中增加校验信息，boot引导之前先计算校验是否正确，等等。</p>
+
+<p><strong>逻辑错误</strong> 非定义的外部输入，逻辑不完善等等，造成程序执行混乱。这个时候建议开启开门狗，然后再boot里面判断看门狗是否苏醒。
+    正常逻辑，看门狗是永远不会苏醒，一旦醒了，就说明逻辑存在问题，这个时候可以进入保护逻辑，或者其他措施。</p>
+
+<p>App完整性校验目的就是通过各种手段判断app是否可靠，无论是引导前还是引导后，只是手段不同。</p></li>
+
+<li><p><strong>更新App</strong>
+如果产品存在升级功能，则需要更新将新固件下载到芯片中。
+升级也很简单，这部分不过就是通讯口的收发，非易失器件擦写，不过做好考虑的也很多。
+A. 通讯口传输新固件，大多都是切片传输，每帧增加校验，校验错误则重传
+B. 传输一半中断或者断电咋办？ 空间足够则采用缓冲，先保存新固件，校验完整后，再copy到app区域</p></li>
+
+<li><p><strong>硬件初始化</strong>
+boot也是一个功能相对稳定的固件，本质也需要初始化硬件，只是对硬件要求较低。</p>
+
+<p>1.初始化时钟
+2.初始化内存,一般内存要求较低，内部有SRAM就省的自己初始化了
+3.关闭看门狗
+4.初始化通讯口(如果存在更新App)</p></li>
+
+<li><p><strong>故障恢复</strong></p>
+
+<p>这部分起始就是完整性校验后续的工作，发现app存在故障该如何解决，比如回退到上版本，跳转到故障检测固件，还是直接停留再boot等待排查故障等等。</p></li>
+</ol>
+
+<h3 id="代码例程-针对arm-m">代码例程(针对ARM-M)</h3>
+
+<ol>
+<li><p>跳转代码(boot-&gt;app)</p>
+
+<pre><code class="language-C">#define USER_APP_FLASH_START_ADDR   0x08008000
+typedef void (*pFunction)(void);
+void Run_User_Application(void)
+{
+    uint32_t JumpAddress = *(__IO uint32_t*)(USER_APP_FLASH_START_ADDR + 4);
+    pFunction Jump_User_Application = (pFunction)JumpAddress;
+    RCC_HSICmd(ENABLE); //切换到内部HSI
+    __disable_irq();
+    NVIC-&gt;ICER[0] = 0xffffffff;//关闭所有中断
+    NVIC-&gt;ICER[1] = 0xffffffff;
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);//HSI
+    while(RCC_SYSCLKSource_HSI != RCC_GetSYSCLKSource());//等待时钟稳定
+    __set_MSP(*(__IO uint32_t*)USER_APP_FLASH_START_ADDR);
+    Jump_User_Application();
+}
+</code></pre></li>
+
+<li><p>看门狗判断</p></li>
+</ol>
+
+<p>看芯片手册，arm-M RCC-&gt;CSR</p>
+
+<ol>
+<li>中断向量表配置
+针对ARM MDK修改system_stm32f10x.c 内 SystemInit函数VECT_TAB_OFFSET宏
+要是偷懒直接再main 初始位置直接配置 SCB-&gt;VTOR 寄存器即可，不过要保证再配置之前没有任何中断</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>刘苏苏 </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8Fboot/>https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8Fboot/</span>
+            </p>
+            
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://lsusu.github.io/tags/arm/">
+                    #ARM</a></span>
+            
+            <span class="tag"><a href="https://lsusu.github.io/tags/boot/">
+                    #Boot</a></span>
+            
+            <span class="tag"><a href="https://lsusu.github.io/tags/%E5%BC%95%E5%AF%BC/">
+                    #引导</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> Â·
+                <span><a href="https://lsusu.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://lsusu.github.io/blogs/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%A0%86%E4%BD%BF%E7%94%A8%E9%A3%8E%E9%99%A9%E5%8F%8A%E6%8A%80%E5%B7%A7/" class="prev" rel="prev" title="嵌入式堆使用风险及技巧"><i class="iconfont icon-left"></i>&nbsp;嵌入式堆使用风险及技巧</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://lsusu.github.io">刘苏苏</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://lsusu.github.io/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -5,7 +5,7 @@
     <link>https://lsusu.github.io/tags/</link>
     <description>Recent content in Tags on 刘苏苏</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 24 Oct 2019 17:47:26 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jan 2020 08:33:21 +0800</lastBuildDate>
     
 	<atom:link href="https://lsusu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,9 +13,27 @@
     <item>
       <title>ARM</title>
       <link>https://lsusu.github.io/tags/arm/</link>
-      <pubDate>Thu, 24 Oct 2019 17:47:26 +0800</pubDate>
+      <pubDate>Mon, 06 Jan 2020 08:33:21 +0800</pubDate>
       
       <guid>https://lsusu.github.io/tags/arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boot</title>
+      <link>https://lsusu.github.io/tags/boot/</link>
+      <pubDate>Mon, 06 Jan 2020 08:33:21 +0800</pubDate>
+      
+      <guid>https://lsusu.github.io/tags/boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>引导</title>
+      <link>https://lsusu.github.io/tags/%E5%BC%95%E5%AF%BC/</link>
+      <pubDate>Mon, 06 Jan 2020 08:33:21 +0800</pubDate>
+      
+      <guid>https://lsusu.github.io/tags/%E5%BC%95%E5%AF%BC/</guid>
       <description></description>
     </item>
     
